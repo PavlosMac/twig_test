@@ -6,8 +6,8 @@ class ChunkArray {
         if(arrSize === 0) {
             throw 'array group size cannot be zero'
         };
-        if(typeof contents !== 'number') {
-            throw 'contents must be a number'
+        if(typeof contents !== 'number' || contents < arrSize) {
+            throw 'contents must be a number and greater than sub array size'
         }
         this.arr = Array.from(Array(contents).keys());
         this.numOfArr = arrSize;
@@ -24,7 +24,7 @@ class ChunkArray {
     }
 }
 
-var chunked = new ChunkArray(6, 3);
+var chunked = new ChunkArray(7, 3);
 
 console.log(chunked.getEqualChunkedElements());
 
